@@ -49,7 +49,8 @@ function renderKitten(kittenData) {
     </li>`;
 }
 
-//Function - Render current kittens List
+//Function - Render kittens List
+
 // function renderKittenList(KittenArray) {
 //   KittenList.innerHTML = '';
 //   let i = 0;
