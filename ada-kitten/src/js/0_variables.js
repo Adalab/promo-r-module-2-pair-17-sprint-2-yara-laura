@@ -26,7 +26,8 @@ const kittenData_3 = {
   desc: 'Ruiseño, juguetón, le gusta estar tranquilo y que nadie le moleste. Es una maravilla acariciarle!',
 };
 
-const kittenDataList = [kittenData_1, kittenData_2, kittenData_3];
+// const kittenDataList = [kittenData_1, kittenData_2, kittenData_3];
+let kittenDataList = [];
 
 //Kitten LI elements
 const Kitten1 =
