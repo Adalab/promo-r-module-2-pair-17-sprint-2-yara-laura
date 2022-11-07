@@ -141,6 +141,7 @@ function filterKitten() {
       toLowerCaseText(eachKitten.race).includes(raceValue)
   );
   renderKittenList(filteredKitten);
+}
 
   // console.log(typeof raceValue);
   // console.log(raceValue);filter
@@ -161,7 +162,7 @@ function filterKitten() {
 
   // arrays filter
   // users = users.filter((x) => x.name == 'Mark' && x.address == 'England');
-}
+
 
 // function filterKittenOnlyRace() {
 //   let list = '';
