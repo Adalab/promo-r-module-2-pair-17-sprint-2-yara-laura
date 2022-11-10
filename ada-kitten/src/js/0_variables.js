@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 // CONSTANTS
 
@@ -63,22 +63,22 @@ let kittenDataList = [];
 //HTML DOM ELEMENTS RETRIEVED
 
 //List
-let githubUser = "garcia-laura";
-const KittenList = document.querySelector(".js-list");
+let githubUser = 'garcia-laura';
+const KittenList = document.querySelector('.js-list');
 
 //Search
-const inputSearchDesc = document.querySelector(".js_in_search_desc");
-const inputSearchRace = document.querySelector(".js_in_search_race");
-const searchButton = document.querySelector(".js_in_search_button");
-const errorMessageSearch = document.querySelector(".js_label_in_search_error");
+const inputSearchDesc = document.querySelector('.js_in_search_desc');
+const inputSearchRace = document.querySelector('.js_in_search_race');
+const searchButton = document.querySelector('.js_in_search_button');
+const errorMessageSearch = document.querySelector('.js_label_in_search_error');
 
 //Form
-const headerIcon = document.querySelector(".js-icon");
-const NewKittenForm = document.querySelector(".js-new-form");
-const descInputForm = document.querySelector(".js-input-desc");
-const photoInputForm = document.querySelector(".js-input-photo");
-const nameInputForm = document.querySelector(".js-input-name");
-const raceInputForm = document.querySelector(".js-input-race");
-const addBtn = document.querySelector(".js-btn-add");
-const cancelBtn = document.querySelector(".js-cancel-button");
-const labelMessageForm = document.querySelector(".js-label-message");
+const headerIcon = document.querySelector('.js-icon');
+const NewKittenForm = document.querySelector('.js-new-form');
+const descInputForm = document.querySelector('.js-input-desc');
+const photoInputForm = document.querySelector('.js-input-photo');
+const nameInputForm = document.querySelector('.js-input-name');
+const raceInputForm = document.querySelector('.js-input-race');
+const addBtn = document.querySelector('.js-btn-add');
+const cancelBtn = document.querySelector('.js-cancel-button');
+const labelMessageForm = document.querySelector('.js-label-message');

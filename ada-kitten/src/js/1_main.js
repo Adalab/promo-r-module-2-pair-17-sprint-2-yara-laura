@@ -56,10 +56,11 @@ function handleClickNewCatForm(event) {
 
 //Function - Race not specified
 function renderRace(kittenRace) {
+  //Cambiamos esta función para que nos devuelva un string de texto y no una etiqueta en sí, ya que un string es lo que necesitamos realmente. FUNCIONA
   if (kittenRace === '') {
-    return '<p class="card_race">No se ha especificado la raza</p>';
+    return 'No se ha especificado la raza';
   } else {
-    return `<h3 class="card_race">${kittenRace}</h3>`;
+    return `${kittenRace}`;
   }
 }
 
@@ -67,19 +68,52 @@ function renderRace(kittenRace) {
 //(be careful with the order of the parameters in the functions)
 
 function renderKitten(kittenData) {
-  return `<li class="card">
-     <article>      <img
-        class="card_img"
-         src="${kittenData.image}"
-         alt="gatito"
-       />
-       <h3 class="card_title">${kittenData.name}</h3>
-      <h3 class="card_race">${renderRace(kittenData.race)}</h3>
-      <p class="card_description">
-      ${kittenData.desc}
-      </p>
-    </article>
-    </li>`;
+  const liEl = document.createElement('li');
+  liEl.setAttribute('class', 'card');
+
+  const articleEl = document.createElement('article');
+
+  const imgEl = document.createElement('img');
+  imgEl.setAttribute('class', 'card_img');
+  imgEl.setAttribute('src', kittenData.image);
+  imgEl.setAttribute('alt', 'gatito');
+
+  const titleEl = document.createElement('h3');
+  const titleText = document.createTextNode(kittenData.name);
+  titleEl.appendChild(titleText);
+  titleEl.setAttribute('class', 'card_title');
+
+  const subtitleEl = document.createElement('h3');
+  const subtitleText = document.createTextNode(renderRace(kittenData.race));
+  subtitleEl.appendChild(subtitleText);
+  subtitleEl.setAttribute('class', 'card_race');
+
+  const textEl = document.createElement('p');
+  const textDesc = document.createTextNode(kittenData.desc);
+  textEl.appendChild(textDesc);
+  textEl.setAttribute('class', 'card_description');
+
+  liEl.appendChild(articleEl);
+  articleEl.appendChild(imgEl);
+  articleEl.appendChild(titleEl);
+  articleEl.appendChild(subtitleEl);
+  articleEl.appendChild(textEl);
+
+  return liEl;
+
+  // return `<li class="card">
+  //    <article>      <img
+  //       class="card_img"
+  //        src="${kittenData.image}"
+  //        alt="gatito"
+  //      />
+  //      <h3 class="card_title">${kittenData.name}</h3>
+  //     <h3 class="card_race">${renderRace(kittenData.race)}</h3>
+  //     <p class="card_description">
+  //     ${kittenData.desc}
+  //     </p>
+  //   </article>
+  //   </li>`;
 }
 
 //Function - Render kittens List
@@ -94,10 +128,11 @@ function renderKitten(kittenData) {
 
 //Otra forma de hacerlo
 function renderKittenList(kittenDataList) {
-  KittenList.innerHTML = '';
-  for (const kittenObject in kittenDataList) {
-    KittenList.innerHTML += renderKitten(kittenDataList[kittenObject]);
+  // KittenList.innerHTML = ''; //comentando esta linea conseguimos que cada vez que se llame a esta función no se machaque nuestro código
+  for (let i = 0; i < kittenDataList.length; i++) {
+    KittenList.appendChild(renderKitten(kittenDataList[i]));
   }
+  console.log(KittenList);
 }
 
 //Function - add New Kitten (FORM)
@@ -119,7 +154,7 @@ function addNewKitten(ev) {
   let descValue = descInputForm.value;
 
   const newKittenDataObject = {
-    img: photoValue,
+    image: photoValue,
     name: nameValue,
     race: raceValue,
     desc: descValue,
@@ -143,6 +178,7 @@ function addNewKitten(ev) {
   })
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       if (data.success) {
         kittenDataList.push(newKittenDataObject);
         renderKittenList(kittenDataList);
@@ -287,4 +323,4 @@ addBtn.addEventListener('click', addNewKitten);
 cancelBtn.addEventListener('click', cancelNewKitten);
 
 //Mostrar listado gatitos
-renderKittenList(kittenDataList);
+// renderKittenList(kittenDataList);
